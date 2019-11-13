@@ -31,7 +31,10 @@ namespace TestTask.Logic.Services
             {
                 var separatedLine = new SeparatedLine
                 {
-                    Elements = line.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList()
+                    Elements = line.Split(
+                        new char[] { ',' }, 
+                        StringSplitOptions.RemoveEmptyEntries)
+                    .ToList()
                 };
 
                 result.Add(separatedLine);
@@ -42,21 +45,13 @@ namespace TestTask.Logic.Services
 
         public int GetLineNumberWithMaxElementSum(List<SeparatedLine> separatedLines)
         {
-            decimal maxSum = decimal.MinValue;
-            int lineNUmber = default;
+            var lineWithMaxSum = separatedLines
+                .Where(sl => sl.IsCorrect)
+                .OrderByDescending(
+                    sl => sl.Elements.Sum(e => decimal.Parse(e)))
+                .FirstOrDefault();
 
-            foreach (var separatedLine in separatedLines.Where(sl => sl.IsCorrect))
-            {
-                var lineSum = separatedLine.Elements.Sum(e => decimal.Parse(e));
-
-                if (lineSum >= maxSum)
-                {
-                    maxSum = lineSum;
-                    lineNUmber = separatedLines.IndexOf(separatedLine);
-                }
-            }
-
-            return lineNUmber;
+            return separatedLines.IndexOf(lineWithMaxSum ?? new SeparatedLine());
         }
     }
 }

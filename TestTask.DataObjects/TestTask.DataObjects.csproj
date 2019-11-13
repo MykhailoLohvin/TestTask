@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckedSeparatedLines.cs" />
     <Compile Include="SeparatedLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

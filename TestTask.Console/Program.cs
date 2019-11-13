@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+
 using TestTask.Logic.Managers;
 using TestTask.Logic.Services;
 
@@ -23,15 +24,14 @@ namespace TestTask.ConsoleProject
 
                 var separatedLines = lineSevice.GetSplittedLines(lines);
                 var checkedLines = lineSevice.CheckForIncorrectLines(separatedLines);
+                var lineNumberWithMaxElementSum = lineSevice.GetLineNumberWithMaxElementSum(checkedLines);
 
-                if (checkedLines.All(cl => !cl.IsCorrect))
+                if (lineNumberWithMaxElementSum == -1)
                 {
                     Console.WriteLine("There is no lines that contains just numbers");
                 }
                 else
                 {
-                    var lineNumberWithMaxElementSum = lineSevice.GetLineNumberWithMaxElementSum(checkedLines);
-
                     Console.WriteLine($"Line number with max element sum is {lineNumberWithMaxElementSum + 1}");
                 }
 
@@ -47,7 +47,7 @@ namespace TestTask.ConsoleProject
             }
             catch(Exception ex)
             {
-                System.Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.Message);
             }
 
             Console.WriteLine("Press any key to close the program");

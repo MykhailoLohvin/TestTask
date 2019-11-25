@@ -7,5 +7,7 @@ namespace TestTask.DataObjects
         public List<string> Elements { get; set; }
 
         public bool IsCorrect { get; set; } = false;
+
+        public bool tratata { get; set; }
     }
 }

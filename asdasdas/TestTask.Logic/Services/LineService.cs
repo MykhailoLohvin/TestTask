@@ -23,6 +23,11 @@ namespace TestTask.Logic.Services
             return separatedLines;
         }
 
+        public void Test()
+        {
+            throw new Exception();
+        }
+
         public List<SeparatedLine> GetSplittedLines(List<string> lines)
         {
             var result = new List<SeparatedLine>();

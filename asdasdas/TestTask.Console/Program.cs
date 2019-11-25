@@ -21,7 +21,8 @@ namespace TestTask.ConsoleProject
                 var lines = fileManager.ReadLines(filePath);
 
                 var lineSevice = new LineService();
-
+                Console.WriteLine("blabla");
+                Console.WriteLine("not visible");
                 var separatedLines = lineSevice.GetSplittedLines(lines);
                 var checkedLines = lineSevice.CheckForIncorrectLines(separatedLines);
                 var lineNumberWithMaxElementSum = lineSevice.GetLineNumberWithMaxElementSum(checkedLines);

@@ -46,6 +46,7 @@
     <Compile Include="Managers\FileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LineService.cs" />
+    <Compile Include="TestClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestTask.Abstraction\TestTask.Abstraction.csproj">
